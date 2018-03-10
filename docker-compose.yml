@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+
+  app:
+    build: ./php
+    volumes:
+      - ./app:/app:cached
